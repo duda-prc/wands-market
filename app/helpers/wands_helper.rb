@@ -1,0 +1,2 @@
+module WandsHelper
+end

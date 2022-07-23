@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  manufacture: MyString
+  wood: MyString
+  core: MyString
+  previous_owners: MyString
+  users: one
+  quantity: 1
+  price: 1.5
+  available: false
+
+two:
+  name: MyString
+  manufacture: MyString
+  wood: MyString
+  core: MyString
+  previous_owners: MyString
+  users: two
+  quantity: 1
+  price: 1.5
+  available: false
