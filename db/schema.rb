@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_23_190616) do
+ActiveRecord::Schema.define(version: 2022_07_23_201542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "shopping_carts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "active", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_shopping_carts_on_user_id"
+  end
+
+  create_table "shopping_items", force: :cascade do |t|
+    t.bigint "shopping_cart_id", null: false
+    t.bigint "wand_id", null: false
+    t.integer "quantity", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shopping_cart_id"], name: "index_shopping_items_on_shopping_cart_id"
+    t.index ["wand_id"], name: "index_shopping_items_on_wand_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -44,5 +62,8 @@ ActiveRecord::Schema.define(version: 2022_07_23_190616) do
     t.index ["users_id"], name: "index_wands_on_users_id"
   end
 
+  add_foreign_key "shopping_carts", "users"
+  add_foreign_key "shopping_items", "shopping_carts"
+  add_foreign_key "shopping_items", "wands"
   add_foreign_key "wands", "users", column: "users_id"
 end

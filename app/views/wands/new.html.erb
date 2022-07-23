@@ -1,7 +1,12 @@
 
-<%= simple_form_for[@user, @wand] do |f| %>
+<%= simple_form_for(@wand) do |f| %>
   <%= f.input :name %>
   <%= f.input :core %>
   <%= f.input :wood %>
+  <%= f.input :manufacture %>
+  <%= f.input :previous_owners %>
+  <%= f.input :quantity %>
+  <%= f.input :price %>
+  <%= f.input :available %>
   <%= f.submit %>
 <% end %>
