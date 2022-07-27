@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">User</th>
+      <th scope="col">Wand name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @wands.each do |wand| %>
+      <tr>
+        <td><%= wand.user.first_name  %></td>
+        <td><%= wand.name  %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>

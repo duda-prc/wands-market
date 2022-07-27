@@ -1,5 +1,6 @@
 class WandsController < ApplicationController
   before_action :set_wand, only: %i[show edit update destroy]
+
   def new
     @wand = Wand.new
   end
@@ -7,6 +8,7 @@ class WandsController < ApplicationController
   def create
     @wand = Wand.new(wand_params)
     # Helpers do devise (definição do usuário)
+
     @wand.user = current_user
 
     if @wand.save

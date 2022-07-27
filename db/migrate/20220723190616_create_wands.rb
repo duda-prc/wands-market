@@ -6,7 +6,7 @@ class CreateWands < ActiveRecord::Migration[6.1]
       t.string :wood
       t.string :core
       t.string :previous_owners
-      t.references :users, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.integer :quantity
       t.float :price
       t.boolean :available
