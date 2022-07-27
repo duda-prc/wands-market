@@ -1,8 +1,13 @@
-<table class="table">
+<h1>Wands Market</h1>
+<p>wands available to buy</p>
+
+<table class="table m-3">
   <thead>
     <tr>
-      <th scope="col">User</th>
+      <th scope="col">User selling</th>
       <th scope="col">Wand name</th>
+      <th scope="col">Wand price ($)</th>
+      <th scope="col">Info</th>
     </tr>
   </thead>
   <tbody>
@@ -10,6 +15,8 @@
       <tr>
         <td><%= wand.user.first_name  %></td>
         <td><%= wand.name  %></td>
+        <td>$ <%= wand.price  %></td>
+        <td><%= link_to 'Show', wand_path(wand)  %></td>
       </tr>
     <% end %>
 

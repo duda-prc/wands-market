@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :wands
 
   validates :first_name, presence: true
+  validates :last_name, presence: true
 
   # Warden::Manager.after_set_user do |user, auth, opts|
   #   if (opts[:scope] == :user && opts[:event] == :set_user)
