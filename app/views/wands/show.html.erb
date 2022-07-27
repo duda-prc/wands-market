@@ -2,6 +2,7 @@
   <h1> <%= @wand.name %></h1>
   <p> User selling => <%= @wand.user.first_name %></p>
   <p> Price => $ <%= @wand.price %></p>
+  <p> Stock => <%= @wand.quantity %></p>
 </div>
 
 <%= link_to 'Back', wands_path, class:'btn btn-primary' %>
