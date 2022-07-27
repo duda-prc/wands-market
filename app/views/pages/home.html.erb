@@ -1,5 +1,6 @@
-<div class="container">
-  <%= link_to 'log out', destroy_user_session_path, method: 'delete' %>
 
-  <%= link_to 'New wand', new_wand_path, class: 'btn btn-primary'  %>
-</div>
+<%= link_to 'log out', destroy_user_session_path, method: 'delete', class:'btn btn-danger' %>
+|
+<%= link_to 'New wand', new_wand_path, class: 'btn btn-primary'  %>
+|
+<%= link_to 'Show wands', wands_path, class: 'btn btn-primary'  %>
