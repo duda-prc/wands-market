@@ -16,4 +16,7 @@ commands: rails db:create db:migrate db:seed
   <li>Run database</li>
 </ol>
 <br />
-You are ready to <strong>buy wands!</strong>
+You are ready to <strong>buy wands!</strong> 
+<hr>
+
+<img src="https://icons.veryicon.com/png/o/miscellaneous/flat-line-icon/magic-wand-tool.png" width="128"/>
