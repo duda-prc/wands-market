@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
     # Verificar se existe shopping cart ativo
     # Se existe -> recebe @shoppingcart (variavel acessível para todos os controllers)
     # Se não existe ShoppingCart.new
-    @shoppingcart = nil
+    @shopping_cart = nil
     return unless current_user
 
-    @shoppingcart = current_user.shopping_carts.where(active: true).last
-    @shoppingcart = current_user.shopping_carts.create if @shoppingcart.nil?
+    @shopping_cart = current_user.shopping_carts.where(active: true).last
+    @shopping_cart = current_user.shopping_carts.create if @shopping_cart.nil?
   end
 
   # Params added to the User params (devise)
