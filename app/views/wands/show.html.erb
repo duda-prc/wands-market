@@ -10,6 +10,10 @@
       <%= link_to 'Not Available', @wand, class: 'btn btn-secondary disabled my-2'  %>
     <% end %>
   </div>
+  
+<div><%= link_to 'Edit wand', edit_wand_path, class: 'btn btn-primary'  %></div>
+<div><%= link_to 'Destroy wand', wand_path(@wand), method: :delete, data: {confirm: "Do you want to delete this wand"}, class: 'btn btn-primary' %></div>
+<div><%= link_to 'See all wands', wands_path, class: 'btn btn-primary'  %></div>
 
   <div class="card p-3 mx-2">
     <%= simple_form_for [@wand, @shopping_item] do |f| %>
