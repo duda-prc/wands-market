@@ -12,25 +12,35 @@ class WandsController < ApplicationController
     @wand.user = current_user
 
     if @wand.save
-      redirect_to @wand
+      redirect_to my_wands_path
     else
       render :new
     end
   end
 
   def index
-    @wands = Wand.all
+    @wands = Wand.where.not(user: current_user)
   end
 
-  def show; end
+  def show
+    @shopping_item = ShoppingItem.new(
+      shopping_cart: @shopping_cart,
+      wand: @wand
+    )
+  end
 
   def edit
   end
 
   def update
+
   end
 
   def destroy
+  end
+
+  def mywands
+    @wands = Wand.where(user: current_user)
   end
 
   private

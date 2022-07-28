@@ -58,4 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Authentification gem
 gem 'devise'
 
+# Ruby gems for front-end
 gem 'simple_form'
+gem "autoprefixer-rails", "10.2.5"
+gem "font-awesome-sass", "~> 6.1"
