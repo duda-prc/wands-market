@@ -29,14 +29,16 @@ class WandsController < ApplicationController
     )
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-
+    @wand.update(wand_params)
+    redirect_to wand_path(@wand)
   end
 
   def destroy
+    @wand.destroy!
+    redirect_to wands_path
   end
 
   def mywands
