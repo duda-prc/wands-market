@@ -19,6 +19,7 @@ class WandsController < ApplicationController
   end
 
   def index
+    # All wands that I did not create
     @wands = Wand.where.not(user: current_user)
   end
 
@@ -38,10 +39,11 @@ class WandsController < ApplicationController
 
   def destroy
     @wand.destroy!
-    redirect_to wands_path
+    redirect_to my_wands_path
   end
 
   def mywands
+    # All wands I have created
     @wands = Wand.where(user: current_user)
   end
 
