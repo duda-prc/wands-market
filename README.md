@@ -1,24 +1,22 @@
-# README
+# Wands Marketplace - README
+This is a Rails project for the Le Wagon Bootcamp <br />
+The Wands Market is a marketplace mockup for selling and buying wands from the Harry Potter world!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+PS: You cannot be Lord Voldemort to use this service... Sorry!
 
-Things you may want to cover:
+* Ruby version -> 3.0.3 (2021-11-24 revision 3fb7d2cadc)
 
-* Ruby version
+* Database -> PostgreSQL\
+commands: rails db:create db:migrate db:seed
 
-* System dependencies
+* Deployment:
+<ol>
+  <li>bundle install</li>
+  <li>yarn install</li>
+  <li>Run database</li>
+</ol>
+<br />
+You are ready to <strong>buy wands!</strong> 
+<hr>
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img src="https://icons.veryicon.com/png/o/miscellaneous/flat-line-icon/magic-wand-tool.png" width="128"/>
