@@ -1,0 +1,13 @@
+<h1>Edit a wand to sell!</h1>
+
+<%= simple_form_for(@wand) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :core, collection: Wand::CORE %>
+  <%= f.input :wood, collection: Wand::WOOD %>
+  <%= f.input :manufacture, collection: Wand::MANUFACTURE %>
+  <%= f.input :previous_owners %>
+  <%= f.input :quantity, input_html: { min: '0'} %>
+  <%= f.input :price, input_html: { min: '0'} %>
+  <%= f.input :available %>
+  <%= f.submit class:'btn btn-success' %>
+<% end %>
