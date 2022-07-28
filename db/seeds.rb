@@ -1,7 +1,33 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Seeding with Harry Potter characters
+# And associating wands
+
+NAMES = %w[Harry\ Potter Draco\ Malfoy Hermione\ Granger Ron\ Weasley Neville\ Longbottom Luna\ Lovegood Rúbeo\ Hagrid Sirius\ Black Fleur\ Delacour James\ Potter Lilian\ Potter]
+
+puts('Seeding users!')
+NAMES.each do |name|
+  puts("Creating user #{name}")
+  name = name.split(' ')
+  first_name = name.first
+  last_name = name.last
+  user = User.new(
+    email: "#{first_name}.#{last_name}@email.com",
+    password: '123456',
+    password_confirmation: '123456',
+    first_name: first_name,
+    last_name: last_name
+  )
+  user.save!
+
+  puts("Creating a wand for #{name}")
+  Wand.create!(
+    name: "#{first_name}'s wand",
+    core: Wand::CORE.sample,
+    wood: Wand::WOOD.sample,
+    manufacture: Wand::MANUFACTURE,
+    price: rand(20..100),
+    quantity: rand(1..10),
+    previous_owners: NAMES.sample,
+    available: [true, false].sample,
+    user: user
+  )
+end

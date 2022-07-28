@@ -1,2 +1,27 @@
-<h1> <%= @wand.name %></h1>
-<p> User selling => <%= @wand.user %></p>
+<div class="d-flex w-100 justify-content-start align-items-center">
+  <div class="card p-3 mx-2">
+    <h1> <%= @wand.name %></h1>
+    <p> User selling => <%= @wand.user.first_name %></p>
+    <p> Price => $ <%= @wand.price %></p>
+    <p> Stock => <%= @wand.quantity %></p>
+    <% if @wand.available %>
+      <%= link_to 'Available', @wand, class: 'btn btn-success my-2'  %>
+    <% else %>
+      <%= link_to 'Not Available', @wand, class: 'btn btn-secondary disabled my-2'  %>
+    <% end %>
+  </div>
+
+  <div class="card p-3 mx-2">
+    <%= simple_form_for [@wand, @shopping_item] do |f| %>
+      <%= f.input :quantity, input_html: { min: '1'} %>
+      <% if @wand.available %>
+        <%= f.submit 'Buy', class:'btn btn-success my-2' %>
+      <% else %>
+        <%= f.submit 'Buy', class:'btn btn-secondary disabled my-2' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= link_to 'Back', wands_path, class:'btn btn-primary mt-3' %>

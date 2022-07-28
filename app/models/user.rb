@@ -4,10 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :shopping_carts
-  has_many :wands
+  has_many :shopping_carts, dependent: :destroy
+  has_many :wands, dependent: :destroy
 
   validates :first_name, presence: true
+  validates :last_name, presence: true
 
   # Warden::Manager.after_set_user do |user, auth, opts|
   #   if (opts[:scope] == :user && opts[:event] == :set_user)
