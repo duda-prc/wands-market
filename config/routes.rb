@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get '/mywands', to: 'wands#mywands', as: 'my_wands'
 
-  resources :shopping_carts, only: %i[index]
+  resources :shopping_carts, only: %i[index show]
+  get '/shoppingcart', to: 'shopping_carts#show_active'
 
   root to: 'pages#home'
 end
