@@ -88,6 +88,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
     ffi (1.15.5)
@@ -233,6 +237,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  dotenv-rails
   font-awesome-sass (~> 6.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
@@ -254,4 +259,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.3.5
+   2.3.18
