@@ -29,6 +29,19 @@
               <%= link_to 'Wands', wands_path, class:'nav-link' %>
             </li>
             <li class="nav-item dropdown">
+              <%#foto do avatar com cloudinary%>
+              <li class="nav-item">
+                <% if user_signed_in? %>
+                  <% if current_user.photo.attached? %>
+                    <%= cl_image_tag(current_user.photo.key, :transformation=>[
+                      {:gravity=>"face", :height=>100, :width=>100, :crop=>"crop"},
+                      {:radius=>"max"},
+                      {:width=>100, :crop=>"scale"},
+                      class:'nav-link'
+                    ]) %>
+                  <%end%>
+                <%end%>
+              </li>
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Sell wands
               </a>

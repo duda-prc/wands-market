@@ -7,6 +7,7 @@
     <%# Inserted first and last name to the Sign up form  %>
     <%= f.input :first_name, required: true  %>
     <%= f.input :last_name, required: true  %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
