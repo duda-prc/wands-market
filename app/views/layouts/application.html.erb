@@ -51,7 +51,7 @@
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                  <li class="align-self-center mx-3">
                   <%= link_to shopping_carts_path , class:'nav-link' do  %>
-                    <%# if it becomes hard to edit this logo we can put a flaticon%>
+                    <%# if it becomes hard to edit this logo we can put a fontawesome%>
                     <%= image_tag 'https://icons.veryicon.com/png/o/miscellaneous/business-linear-icon-2/empty-cart.png', alt:'empty cart', style: 'height: 30px; width:30px;' %>
                   <% end %>
                 </li>
@@ -65,6 +65,10 @@
                           {:radius=>"max"},
                           {:width=>50, :crop=>"scale"}
                         ]) %>
+                        <%# link_to user_registration_path %>
+                      <%else%>
+                        <i class="fa-solid fa-wand-sparkles"></i>
+                        <%# link_to user_registration_path %>
                       <%end%>
                     <%end%>
                   </div>
