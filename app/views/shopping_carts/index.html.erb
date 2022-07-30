@@ -1,0 +1,12 @@
+<div class="container my-3">
+  <% @shopping_carts.each do |cart| %>
+    <% unless cart.active %>
+      <div class="card bg-dark text-white p-3 m-2">
+        <h2>Cart</h2>
+        <% cart.shopping_items.each do |item| %>
+          <p> <%= link_to "#{item.wand.name}", wand_path(item.wand), class:'btn' %> | Number: <%= item.quantity %></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -7,11 +7,15 @@ class ShoppingCartsController < ApplicationController
   def show; end
 
   def index
-    @shopping_cart = ShoppingCart.all
+    @shopping_carts = policy_scope(ShoppingCart)
   end
 
   def buy
-    @shopping_cart.active = false
+    authorize @shopping_cart
+    return unless @shopping_cart.shopping_items
+
+    @shopping_cart.updtae(active: false)
     @shopping_cart = current_user.shopping_carts.create
+    redirect_to shoppingcart_path
   end
 end

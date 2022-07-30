@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# Inserted favicon  %>
+    <%= favicon_link_tag 'favicon.ico'  %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
@@ -27,6 +29,9 @@
             </li>
             <li class="nav-item">
               <%= link_to 'Wands', wands_path, class:'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Shopping carts',  shopping_carts_path, class:'nav-link' %>
             </li>
 
             <li class="nav-item dropdown">
@@ -63,9 +68,8 @@
                     <% if user_signed_in? %>
                       <% if current_user.photo.attached? %>
                         <%= cl_image_tag("#{current_user.photo.key}.png", :transformation=>[
-                          {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
-                          {:radius=>"max"},
-                          {:width=>50, :crop=>"scale"}
+                          {:gravity=>"face", :height=>50, :width=>50,
+                          :crop=>"fill", :radius=>"max"}
                         ])%>
                         <%# link_to edit_user_registration_path(current_user) %>
                       <% else %>
