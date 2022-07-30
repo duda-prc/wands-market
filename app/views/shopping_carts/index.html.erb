@@ -1,11 +1,17 @@
 <div class="container my-3">
   <% @shopping_carts.each do |cart| %>
+    <% i = 1 %>
     <% unless cart.active %>
       <div class="card bg-dark text-white p-3 m-2">
-        <h2>Cart</h2>
-        <% cart.shopping_items.each do |item| %>
-          <p> <%= link_to "#{item.wand.name}", wand_path(item.wand), class:'btn' %> | Number: <%= item.quantity %></p>
-        <% end %>
+        <p class="m-0"><strong>Shopping cart nº <%= i %></strong></p>
+        <hr>
+        <ol>
+          <% cart.shopping_items.each do |item| %>
+            <li> <%= link_to "#{item.wand.name}", wand_path(item.wand), class:'btn' %> | Number: <%= item.quantity %></li>
+          <% end %>
+        </ol>
+        <p>Cart created at: <%= cart.created_at %></p>
+        <% i+=1 %>
       </div>
     <% end %>
   <% end %>
