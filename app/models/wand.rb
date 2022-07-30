@@ -4,6 +4,7 @@ class Wand < ApplicationRecord
   MANUFACTURE = %w[Ollivander Gregorovitch Beauvais Jonker].freeze
   belongs_to :user
   has_many :shopping_items, dependent: :destroy
+  has_one_attached :photo
 
   validates :quantity, numericality: { greater_than_or_equal_to: 0 }
   validates :price, numericality: { greater_than_or_equal_to: 1 }

@@ -5,6 +5,7 @@
   <table class="table text-white">
     <thead>
       <tr>
+        <th scope="col">Wand photo</th>
         <th scope="col">User selling</th>
         <th scope="col">Wand name</th>
         <th scope="col">Wand price ($)</th>
@@ -15,6 +16,11 @@
     <tbody>
       <% @wands.each do |wand| %>
         <tr>
+          <% if wand.photo.attached? %>
+            <td><%= cl_image_tag wand.photo.key, height: 80, width: 80, crop: :fill %></td>
+          <%else%>
+            <td><%= image_tag "banner.svg", height: 80, width: 80, crop: :fill %></td>
+          <%end%>
           <td><%= wand.user.first_name  %></td>
           <td><%= wand.name  %></td>
           <td>$ <%= wand.price  %></td>
