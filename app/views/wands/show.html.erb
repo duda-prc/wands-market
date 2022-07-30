@@ -4,11 +4,14 @@
     <p> User selling => <%= @wand.user.first_name %></p>
     <p> Price => $ <%= @wand.price %></p>
     <p> Stock => <%= @wand.quantity %></p>
-    <% if @wand.photo.attached? %>
-      <td><%= cl_image_tag @wand.photo.key, height: 80, width: 80, crop: :fill %></td>
-    <%else%>
-      <td><%= image_tag "banner.svg", height: 80, width: 80, crop: :fill %></td>
-    <%end%>
+    <div class="mx-auto pb-3">
+      <% if @wand.photo.attached? %>
+        <%= cl_image_tag @wand.photo.key, height: 80, width: 80, crop: :fill %>
+      <%else%>
+        <%= image_tag "banner.svg", height: 80, width: 80, crop: :fill %>
+      <%end%>
+    </div>
+
     <% if @wand.available %>
       <%= link_to 'Available', @wand, class: 'btn btn-success my-2'  %>
     <% else %>
