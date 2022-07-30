@@ -1,8 +1,9 @@
+<%# <%= image_tag 'banner.svg', alt:'banner'  %>
 
-<%= link_to 'log out', destroy_user_session_path, method: 'delete', class:'btn btn-danger' %>
-|
-<%= link_to 'New wand', new_wand_path, class: 'btn btn-primary'  %>
-|
-<%= link_to 'Show wands', wands_path, class: 'btn btn-primary'  %>
-|
-<%= link_to 'Shopping cart', shopping_carts_path, class: 'btn btn-primary'  %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80);">
+  <div class="container">
+    <h1>The <strong>wands market</strong> will find you <strong>the perfect wand</strong>!</h1>
+    <p>Change your life selling and buying wands in the best market.</p>
+    <a class="btn btn-flat" href="#">Sign up!</a>
+  </div>
+</div>

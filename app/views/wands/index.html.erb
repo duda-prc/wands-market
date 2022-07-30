@@ -1,30 +1,32 @@
-<h1>Wands Market</h1>
-<p>wands available to buy</p>
+<div class="container my-3">
+  <h1>Wands Market</h1>
+  <p>wands available to buy</p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">User selling</th>
-      <th scope="col">Wand name</th>
-      <th scope="col">Wand price ($)</th>
-      <th scope="col">Stock quantity</th>
-      <th scope="col">Info</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @wands.each do |wand| %>
+  <table class="table mx-3 text-white">
+    <thead>
       <tr>
-        <td><%= wand.user.first_name  %></td>
-        <td><%= wand.name  %></td>
-        <td>$ <%= wand.price  %></td>
-        <td><%= wand.quantity  %></td>
-        <% if wand.available %>
-          <td><%= link_to 'Show', wand_path(wand), class:'btn btn-primary'  %></td>
-        <% else %>
-          <td><%= link_to 'Not available', wand_path(wand), class:'btn btn-secondary'  %></td>
-        <% end %>
+        <th scope="col">User selling</th>
+        <th scope="col">Wand name</th>
+        <th scope="col">Wand price ($)</th>
+        <th scope="col">Stock quantity</th>
+        <th scope="col">Info</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @wands.each do |wand| %>
+        <tr>
+          <td><%= wand.user.first_name  %></td>
+          <td><%= wand.name  %></td>
+          <td>$ <%= wand.price  %></td>
+          <td><%= wand.quantity  %></td>
+          <% if wand.available %>
+            <td><%= link_to 'Show', wand_path(wand), class:'btn btn-primary'  %></td>
+          <% else %>
+            <td><%= link_to 'Not available', wand_path(wand), class:'btn btn-secondary'  %></td>
+          <% end %>
+        </tr>
+      <% end %>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

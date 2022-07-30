@@ -1,0 +1,46 @@
+<div class="container my-3">
+  <div class="card text-center text-bg-dark mx-3">
+    <div class="card-header text-bg-secondary">
+      Shopping cart
+    </div>
+    <% if @shopping_cart.shopping_items.count == 0 %>
+      <div class="card-body">
+        <h5 class="card-title">Your cart is empty!</h5>
+        <p class="card-text">Many wands await you to join a magical journey.</p>
+        <%= link_to 'Search wands!', wands_path ,class:'btn btn-primary' %>
+      </div>
+    <% else %>
+      <table class="table h-30">
+        <thead>
+          <tr>
+            <th scope="col">User selling</th>
+            <th scope="col">Wand name</th>
+            <th scope="col">Wand price ($)</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total ($) </th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @shopping_cart.shopping_items.each do |item| %>
+            <tr>
+              <td><%= item.wand.user.first_name  %></td>
+              <td><%= item.wand.name  %></td>
+              <td>$ <%= item.wand.price  %></td>
+              <td><%= item.quantity  %></td>
+              <td>$ <%= (item.wand.price * item.quantity)  %></td>
+              <td><%= link_to shopping_item_path(item),
+                              class:'btn btn-outline-danger',
+                              method: :delete,
+                              data: { confirm: 'Are you sure?'} do %>
+                    <i class="fa-solid fa-trash-can"></i>
+                  <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+
+  </div>
+</div>
