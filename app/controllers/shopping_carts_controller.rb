@@ -14,7 +14,7 @@ class ShoppingCartsController < ApplicationController
     authorize @shopping_cart
     return unless @shopping_cart.shopping_items
 
-    @shopping_cart.updtae(active: false)
+    @shopping_cart.update(active: false)
     @shopping_cart = current_user.shopping_carts.create
     redirect_to shoppingcart_path
   end

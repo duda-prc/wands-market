@@ -1,4 +1,5 @@
 class ShoppingItemsController < ApplicationController
+
   before_action :set_wand, only: %i[create]
   before_action :shopping_item_params, only: %i[create]
 
@@ -11,7 +12,6 @@ class ShoppingItemsController < ApplicationController
       wand: @wand,
       quantity: quantity
     )
-
     authorize @shopping_item
     # Verify if quantity is in stock
     if quantity > @wand.quantity
@@ -20,8 +20,9 @@ class ShoppingItemsController < ApplicationController
       @shopping_item.quantity_greater_than_stock
       render 'wands/show'
     elsif @shopping_item.valid? && @wand.available
-      if ShoppingItem.find_by(wand: @wand)
-        @shopping_item = ShoppingItem.find_by(wand: @wand)
+      shopping_items = ShoppingItem.where(shopping_cart: @shopping_cart)
+      if shopping_items.find_by(wand: @wand)
+        @shopping_item = shopping_items.find_by(wand: @wand)
         @shopping_item.quantity += quantity
       end
       @wand.update(quantity: @wand.quantity - quantity)
