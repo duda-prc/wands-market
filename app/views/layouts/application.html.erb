@@ -75,18 +75,19 @@
                       <% end %>
                     </div>
 
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <%= link_to "edit", edit_user_registration_path, class:"dropdown-item" %>
-                        <%= link_to "edit", edit_user_registration_path, class:"dropdown-item" %>
-                        <%# <a class="dropdown-item" href=<%=link_to edit_user_registration_path(current_user)%>
-                    </div>
+                    <% if user_signed_in? %>
+                      <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+                          <%= link_to "edit", edit_user_registration_path, class:"dropdown-item" %>
+                          <%= link_to "log out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                      </div>
+                    <%end%>
 
                     <%#Text with person name%>
                     <div class="text-center">
                       <% if user_signed_in? %>
-                        <a class="nav-link disabled">Hello <%= current_user.first_name %>!</a>
+                        <a style="font-size:15px" class="nav-link disabled">Hello <%= current_user.first_name %>!</a>
                       <% else %>
-                        <a class="nav-link disabled">Log in</a>
+                        <%= link_to "log in", user_session_path , class:'nav-link' %>
                       <% end %>
                     </div>
                   </li>
