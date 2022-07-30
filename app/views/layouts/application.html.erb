@@ -60,12 +60,12 @@
                   <div class="text-center">
                     <% if user_signed_in? %>
                       <% if current_user.photo.attached? %>
-                        <%= cl_image_tag(current_user.photo.key, :transformation=>[
+                        <%= cl_image_tag("#{current_user.photo.key}.png", :transformation=>[
                           {:gravity=>"face", :height=>400, :width=>400, :crop=>"crop"},
                           {:radius=>"max"},
                           {:width=>50, :crop=>"scale"}
-                        ]) %>
-                        <%# link_to user_registration_path %>
+                        ])%>
+                        <%# link_to edit_user_registration_path(current_user) %>
                       <%else%>
                         <i class="fa-solid fa-wand-sparkles"></i>
                         <%# link_to user_registration_path %>
