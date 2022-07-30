@@ -6,7 +6,12 @@ class ShoppingCartsController < ApplicationController
 
   def show; end
 
-  def index; end
+  def index
+    @shopping_cart = ShoppingCart.all
+  end
 
-
+  def buy
+    @shopping_cart.active = false
+    @shopping_cart = current_user.shopping_carts.create
+  end
 end
