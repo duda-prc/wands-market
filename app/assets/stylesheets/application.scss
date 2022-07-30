@@ -1,3 +1,25 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+
+// Your CSS partials
+@import "components/index";
+
+// Custom styles
+.brand {
+  font-family: $headers-font;
+  font-size: 32px;
+}
+
+.navbar {
+  font-family: $headers-font;
+}
+
+.text-white {
+  color: white !important;
+}

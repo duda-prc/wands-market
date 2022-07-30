@@ -1,5 +1,5 @@
 <div class="d-flex w-100 justify-content-start align-items-center">
-  <div class="card p-3 mx-2">
+  <div class="card p-3 mx-2 text-bg-dark">
     <h1> <%= @wand.name %></h1>
     <p> User selling => <%= @wand.user.first_name %></p>
     <p> Price => $ <%= @wand.price %></p>
@@ -13,7 +13,7 @@
 
 
   <% if policy(@shopping_item).create? %>
-    <div class="card p-3 mx-2">
+    <div class="card p-3 mx-2 text-bg-dark">
       <%= simple_form_for [@wand, @shopping_item] do |f| %>
         <%= f.input :quantity, input_html: { min: '1'} %>
         <% if @wand.available %>
