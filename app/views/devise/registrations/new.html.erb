@@ -8,7 +8,9 @@
     <%# Inserted first and last name to the Sign up form  %>
     <%= f.input :first_name, required: true  %>
     <%= f.input :last_name, required: true  %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photo, as: :file,
+                            label: 'Your photo:',
+                            input_html: { class:'form-control' } %>
     <%# f.input :picture, as: :image %>
     <%= f.input :email,
                 required: true,
