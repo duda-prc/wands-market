@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
 
+  #for avatar photo
+  has_one_attached :photo
+
   # Warden::Manager.after_set_user do |user, auth, opts|
   #   if (opts[:scope] == :user && opts[:event] == :set_user)
   #     shoppingcart = shopping_carts.where(active: true).last
