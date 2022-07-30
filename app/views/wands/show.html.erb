@@ -1,11 +1,13 @@
 <div class="d-flex w-100 justify-content-start align-items-center">
-  <div class="card p-3 mx-2 text-bg-dark">
+  <div class="card p-3 mx-2">
     <h1> <%= @wand.name %></h1>
     <p> User selling => <%= @wand.user.first_name %></p>
     <p> Price => $ <%= @wand.price %></p>
     <p> Stock => <%= @wand.quantity %></p>
     <% if @wand.photo.attached? %>
-      <%= cl_image_tag @wand.photo.key, height: 300, width: 400, crop: :fill %>
+      <td><%= cl_image_tag @wand.photo.key, height: 80, width: 80, crop: :fill %></td>
+    <%else%>
+      <td><%= image_tag "banner.svg", height: 80, width: 80, crop: :fill %></td>
     <%end%>
     <% if @wand.available %>
       <%= link_to 'Available', @wand, class: 'btn btn-success my-2'  %>
@@ -15,31 +17,21 @@
   </div>
 
 
-  <% if policy(@shopping_item).create? %>
-    <div class="card p-3 mx-2 text-bg-dark">
-      <%= simple_form_for [@wand, @shopping_item] do |f| %>
-        <%= f.input :quantity, input_html: { min: '1'} %>
-        <% if @wand.available %>
-          <%= f.submit 'Buy', class:'btn btn-success my-2' %>
-        <% else %>
-          <%= f.submit 'Buy', class:'btn btn-secondary disabled my-2' %>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
 
+  <div class="card p-3 mx-2">
+    <%= simple_form_for [@wand, @shopping_item] do |f| %>
+      <%= f.input :quantity, input_html: { min: '1'} %>
+      <% if @wand.available %>
+        <%= f.submit 'Buy', class:'btn btn-success my-2' %>
+      <% else %>
+        <%= f.submit 'Buy', class:'btn btn-secondary disabled my-2' %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="mt-3">
-  <% if policy(@wand).edit? %>
-    <%= link_to 'Edit wand', edit_wand_path(@wand), class: 'btn btn-primary'  %> |
-  <% end %>
-  <% if policy(@wand).destroy? %>
-    <%= link_to 'Destroy wand', wand_path(@wand), method: :delete, data: {confirm: "Do you want to delete this wand"}, class: 'btn btn-danger' %> |
-  <% end %>
-  <% if @wand.user == current_user %>
-    <%= link_to 'Back', my_wands_path, class:'btn btn-primary' %>
-  <% else %>
-    <%= link_to 'Back', wands_path, class:'btn btn-primary' %>
-  <% end %>
+  <%= link_to 'Edit wand', edit_wand_path(@wand), class: 'btn btn-primary'  %> |
+  <%= link_to 'Destroy wand', wand_path(@wand), method: :delete, data: {confirm: "Do you want to delete this wand"}, class: 'btn btn-danger' %> |
+  <%= link_to 'Back', wands_path, class:'btn btn-primary' %>
 </div>
