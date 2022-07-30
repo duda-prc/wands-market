@@ -57,7 +57,7 @@ class WandsController < ApplicationController
   private
 
   def wand_params
-    params.require(:wand).permit(:name, :wood, :core, :manufacture, :previous_owners, :quantity, :price, :available)
+    params.require(:wand).permit(:name, :wood, :core, :manufacture, :previous_owners, :quantity, :price, :available, :photo)
   end
 
   def set_wand

@@ -15,6 +15,9 @@
     <tbody>
       <% @wands.each do |wand| %>
         <tr>
+          <% if wand.photo.attached? %>
+            <td><%= cl_image_tag wand.photo.key, height: 300, width: 400, crop: :fill %></td>
+          <%end%>
           <td><%= wand.user.first_name  %></td>
           <td><%= wand.name  %></td>
           <td>$ <%= wand.price  %></td>
