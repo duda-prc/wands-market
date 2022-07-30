@@ -11,11 +11,11 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg bg-light">
+    <nav class="navbar navbar-expand-lg border-bottom navbar-dark bg-dark border-secondary">
       <div class="container-fluid">
         <%= link_to root_path, class: 'navbar-brand' do  %>
-          <%= image_tag 'https://icons.veryicon.com/png/o/miscellaneous/indata/wand-magic-2.png', alt:'wands market', style: 'height: 30px; width:30px;' %>
-          Wands Market
+          <%= image_tag 'magic_wand.svg', alt:'wands market', style: 'height: 30px; width:30px;' %>
+          <span class="brand">Wands Market</span>
         <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <%= link_to 'Home', root_path, class:'nav-link active'   %>
+              <%= link_to 'Home', root_path, class:'nav-link' %>
             </li>
             <li class="nav-item">
               <%= link_to 'Wands', wands_path, class:'nav-link' %>
@@ -32,7 +32,7 @@
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Sell wands
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu dropdown-menu-dark">
                 <li>
                   <%= link_to 'My wands', my_wands_path, class:'dropdown-item'  %>
                 </li>
@@ -43,13 +43,18 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
-            <li class="nav-item">
-              <% if user_signed_in? %>
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to 'Log out', destroy_user_session_path, method: 'delete', class:' nav-link' %>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link disabled">Hello <%= current_user.first_name %>!</a>
-              <% else %>
-                <a class="nav-link disabled">Log in</a>
-              <% end %>
-            </li>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Log in', new_user_session_path, class:'nav-link'  %>
+              </li>
+            <% end %>
           </ul>
           <div class="nav-item mx-2">
             <%= link_to shoppingcart_path , class:'nav-link' do  %>
@@ -64,14 +69,12 @@
       </div>
     </nav>
 
+    <%= yield %>
 
-    <div class="container my-3">
-      <%= yield %>
-    </div>
-      <%# Devise authentication alerts  %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%# --- %>
+    <%# Devise authentication alerts  %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%# --- %>
 
   </body>
 </html>

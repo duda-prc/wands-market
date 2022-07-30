@@ -1,0 +1,23 @@
+// Import Google fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+
+// Define fonts for body and headers
+$body-font: "Work Sans", "Helvetica", "sans-serif";
+$headers-font: "Nightmare", "sans-serif";
+
+// To use a font file (.woff) uncomment following lines
+@font-face {
+  font-family: "Nightmare";
+  src: url('NightmarePills-BV2w.ttf');
+  // src: font-url('Gilroy.eot?#iefix') format('embedded-opentype'),
+  //   font-url('Gilroy.woff') format('woff'),
+  //   font-url('Gilroy.ttf') format('truetype')
+}
+
+// @font-face {
+//   font-family: "Gilroy Bold";
+//   src: url('GILROY-EXTRABOLD.OTF');
+//   // src: font-url('Gilroy.eot?#iefix') format('embedded-opentype'),
+//   //   font-url('Gilroy.woff') format('woff'),
+//   //   font-url('Gilroy.ttf') format('truetype')
+// }
