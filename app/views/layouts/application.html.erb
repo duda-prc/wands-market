@@ -45,26 +45,16 @@
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
-            <% if user_signed_in? %>
-              <li class="nav-item">
-                <%= link_to 'Log out', destroy_user_session_path, method: 'delete', class:' nav-link' %>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Hello <%= current_user.first_name %>!</a>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to 'Log in', new_user_session_path, class:'nav-link'  %>
-              </li>
-            <% end %>
           </ul>
 
           <div class="nav-item mx-2">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                  <li class="align-self-center mx-3">
-                  <%= link_to shopping_carts_path , class:'nav-link' do  %>
+                  <%= link_to shoppingcart_path , class:'nav-link' do  %>
                     <%# if it becomes hard to edit this logo we can put a fontawesome%>
-                    <%= image_tag 'https://icons.veryicon.com/png/o/miscellaneous/business-linear-icon-2/empty-cart.png', alt:'empty cart', style: 'height: 30px; width:30px;' %>
+                    <%= image_tag 'https://icons.veryicon.com/png/o/miscellaneous/business-linear-icon-2/empty-cart.png',
+                                  alt:'empty cart',
+                                  style: 'height: 30px; width:30px;' %>
                   <% end %>
                 </li>
                 <%#Avatar photo with cloudinary%>
@@ -78,11 +68,11 @@
                           {:width=>50, :crop=>"scale"}
                         ])%>
                         <%# link_to edit_user_registration_path(current_user) %>
-                      <%else%>
+                      <% else %>
                         <i class="fa-solid fa-wand-sparkles"></i>
                         <%# link_to user_registration_path %>
-                      <%end%>
-                    <%end%>
+                      <% end %>
+                    <% end %>
                   </div>
                   <%#Text with person name%>
                   <div class="text-center">
