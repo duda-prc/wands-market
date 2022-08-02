@@ -1,9 +1,8 @@
 <div class="container my-3">
   <% @shopping_carts.each do |cart| %>
-    <% i = 1 %>
     <% unless cart.active %>
       <div class="card bg-dark text-white p-3 m-2">
-        <p class="m-0"><strong>Shopping cart nº <%= i %></strong></p>
+        <p class="m-0"><strong>Shopping cart nº <%= cart.id %></strong></p>
         <hr>
         <ol>
           <% cart.shopping_items.each do |item| %>
@@ -11,7 +10,6 @@
           <% end %>
         </ol>
         <p>Cart created at: <%= cart.created_at %></p>
-        <% i+=1 %>
       </div>
     <% end %>
   <% end %>
