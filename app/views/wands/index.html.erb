@@ -1,6 +1,6 @@
 <div class="cards">
   <% @wands.each do |wand| %>
-    <div class="card">
+    <div class="p-2 card">
       <div class="p-2 card-product">
         <div class="p-2 card-product img">
           <% if wand.photo.attached? %>
@@ -9,10 +9,10 @@
             <td><%= image_tag "banner.svg", height: 80, width: 80, crop: :fill %></td>
           <%end%>
         </div>
-        <div class="p-2">
+        <div class="p-2 pt-0">
           <h2><%= wand.name  %></h2>
           <%if wand.available %>
-            <p> </p>
+            <p><br></p>
           <% else %>
             <p class="small-text">(Wand not available)</p>
           <%end%>
