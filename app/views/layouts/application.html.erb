@@ -43,7 +43,6 @@
         </ul>
 
         <!-- Avatar photo with cloudinary -->
-
         <ul class="navbar-nav me-auto" id="user-info">
           <li class="nav-item dropdown">
             <% if user_signed_in? %>
@@ -51,20 +50,19 @@
                 <%= cl_image_tag("#{current_user.photo.key}.png", :transformation=>[
                   :width=>50, :height=>50, :gravity=>"face", :radius=>"max", :crop=>"fill"
                 ], class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown"}, 'aria-haspopup': true, 'aria-expanded': false) %>
-                <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "Edit", edit_user_registration_path, class:"dropdown-item" %>
-                  <%= link_to "History", shopping_carts_path, class:"dropdown-item" %>
-                  <%# <hr class="dropdown-divider"> %>
-                  <%= link_to 'My wands', my_wands_path, class:'dropdown-item'  %>
-                  <a class="dropdown-item" href="#">My Sells</a>
-                  <hr class="dropdown-divider border-secondary">
-                  <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
-                </div>
-
               <% else %>
                 <!-- in case user don't have a photo -->
-                <i class="fa-solid fa-wand-sparkles avatar dropdown-toggle", id= "navbarDropdown"></i>
+                <i class="fa-solid fa-wand-sparkles avatar dropdown-toggle", id= "navbarDropdown", data-bs-toggle="dropdown", aria-haspopup="true",aria-expanded="false" ></i>
               <% end %>
+              <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Edit", edit_user_registration_path, class:"dropdown-item" %>
+                <%= link_to "History", shopping_carts_path, class:"dropdown-item" %>
+                <%# <hr class="dropdown-divider"> %>
+                <%= link_to 'My wands', my_wands_path, class:'dropdown-item'  %>
+                <a class="dropdown-item" href="#">My Sells</a>
+                <hr class="dropdown-divider border-secondary">
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+              </div>
             <% else %>
               <%= link_to new_user_session_path , class:'nav-link' do  %>
                 <i class="fa-solid fa-wand-sparkles avatar"></i>
@@ -74,7 +72,7 @@
         </ul>
 
         <!-- Offcanvas menu -->
-        <div id="offcanvas-info">
+        <div id="offcanvas-info" class="navbar-nav">
           <% if user_signed_in? %>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
               <% if current_user.photo.attached? %>
