@@ -5,13 +5,13 @@
 
 // General style
 $font-family-sans-serif: $body-font;
-$headings-font-family: $headers-font;
+$headings-font-family: $body-font;
 $body-bg: $black;
 $font-size-base: 1rem;
 
 // Colors
 $body-color: $white;
-$primary: $blue;
+$primary: $darkred;
 $success: $green;
 $info: $yellow;
 $danger: $darkred;
@@ -29,7 +29,8 @@ $navbar-dark-brand-color: $red;
 $navbar-dark-brand-hover-color: $red;
 
 $nav-link-font-size: larger;
-$navbar-dark-color: $white;
+$navbar-dark-hover-color: $white;
+$navbar-dark-color: rgba(white, 0.55);
 $dropdown-dark-link-hover-bg: $gray;
 
 $table-color: $black;

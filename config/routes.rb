@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :shopping_carts, only: %i[index show]
   get '/shoppingcart', to: 'shopping_carts#show_active'
+  get '/shoppingcart/buy', to: 'shopping_carts#buy'
 
   root to: 'pages#home'
 end
