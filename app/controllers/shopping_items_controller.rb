@@ -26,7 +26,6 @@ class ShoppingItemsController < ApplicationController
         @shopping_item.quantity += quantity
       end
       @wand.update(quantity: @wand.quantity - quantity)
-      @wand.update(available: false) if @wand.quantity.zero?
       @shopping_item.save
       redirect_to @wand
     else
