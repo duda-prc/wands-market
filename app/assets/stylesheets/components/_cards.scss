@@ -1,0 +1,26 @@
+// Card from bootstrap
+.cards-home {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  align-items: center;
+}
+
+@media(max-width: 1300px) {
+  .cards-home {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+@media(max-width: 992px) {
+  .cards-home {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .cards-home {
+    grid-template-columns: 1fr;
+  }
+}

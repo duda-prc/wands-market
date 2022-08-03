@@ -1,9 +1,87 @@
-<%# <%= image_tag 'banner.svg', alt:'banner'  %>
-
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80);">
-  <div class="container">
+  <div class="container" data-aos="fade-up-left" data-aos-duration="2000">
     <h1>The <strong>wands market</strong> will find you <strong>the perfect wand</strong>!</h1>
     <p>Buy and sell various wands, embrace the wizard within you</p>
     <%= link_to 'Sign up!',new_user_registration_path , class:'btn btn-flat btn-primary' %>
   </div>
+</div>
+
+<h4 class="text-center text-white mt-5">Find the <em>perfect</em> wand</h4>
+
+<div class="container mt-4 p-0">
+  <div class="cards-home">
+    <div class="card bg-dark mx-auto" data-aos="fade-down" style="width: 18rem;">
+      <div class="card-header bg-dark">
+        Featured
+      </div>
+      <%= image_tag 'https://static.wixstatic.com/media/70530e_01060a29e5f849c1bf0ff5d67073d57a~mv2.jpg/v1/fill/w_498,h_498,al_c,q_85,usm_0.66_1.00_0.01/70530e_01060a29e5f849c1bf0ff5d67073d57a~mv2.jpg' , class:'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="card bg-dark mx-auto" data-aos="fade-down" style="width: 18rem;">
+      <div class="card-header bg-secondary">
+        Featured
+      </div>
+      <%= image_tag 'https://cdn.shopify.com/s/files/1/2659/9670/products/ww11_250x250@2x.jpg?v=1643313092' , class:'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="card bg-dark mx-auto" data-aos="fade-down" style="width: 18rem;">
+      <div class="card-header bg-secondary">
+        Featured
+      </div>
+      <%= image_tag 'https://64.media.tumblr.com/7f6b8f5c8642cdc865fc383c2d79667a/tumblr_nz9nbsLQ2X1uvj5cdo1_1280.jpg' , class:'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+    <div class="card bg-dark mx-auto" data-aos="fade-down" style="width: 18rem;">
+      <div class="card-header bg-secondary">
+        Featured
+      </div>
+      <%= image_tag 'https://media.giphy.com/media/mVoj8dmCQUdNK9N1NQ/giphy.gif' , class:'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4 class="text-center text-white mt-5 mb-2">The <strong>best</strong> manufactures</h4>
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="true" data-aos="fade-left">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5000">
+      <%= image_tag 'LOGO1.png', class:"d-block mx-auto", alt:'logo1'  %>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag 'LOGO2.png', class:"d-block mx-auto", alt:'logo2'  %>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag 'LOGO3.jpg', class:"d-block mx-auto", alt:'logo3'  %>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag 'LOGO4.jpg', class:"d-block mx-auto", alt:'logo4'  %>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag 'LOGO5.jpg', class:"d-block mx-auto", alt:'logo5'  %>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>

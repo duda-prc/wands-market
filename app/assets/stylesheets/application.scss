@@ -11,6 +11,19 @@
 @import "components/index";
 
 // Custom styles
+body {
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 100px;
+  /* Set same as footer's height */
+}
+
 .brand {
   font-family: $headers-font;
   font-size: 32px;
@@ -26,6 +39,10 @@
 
 .text-white {
   color: white !important;
+}
+
+.carousel-item img {
+  height: 100px;
 }
 
 // Media queries to adjust Navbar
