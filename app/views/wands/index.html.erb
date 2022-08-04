@@ -1,33 +1,28 @@
 <div class="cards">
   <% @wands.each do |wand| %>
-    <div class="p-2 card">
-      <div class="p-2 card-product">
-        <div class="p-2 card-product img">
-          <% if wand.photo.attached? %>
-            <td><%= cl_image_tag wand.photo.key, height: 80, width: 80, crop: :fill %></td>
-          <%else%>
-            <td><%= image_tag "banner.svg", height: 80, width: 80, crop: :fill %></td>
-          <%end%>
-        </div>
-        <div class="p-2 pt-0">
-          <h2><%= wand.name  %></h2>
-          <%if wand.available %>
-            <p><br></p>
-          <% else %>
-            <p class="small-text">(Wand not available)</p>
-          <%end%>
-          <p>Seller: <strong><%= wand.user.first_name %></strong></p>
-          <p>Price:<strong><%= " $ #{wand.price}" %></strong></p>
-          <p>Quantity: <strong><%= wand.quantity %></strong></p>
-          <p class="corner-btn">
-            <% if wand.available %>
-              <td><%= link_to 'Show', wand_path(wand), class:'btn btn-primary'  %></td>
+    <%= link_to wand_path(wand) do %>
+      <div class="p-2 card bg-dark">
+        <div class="p-2 card-product">
+          <div class="p-2 card-product img">
+            <% if wand.photo.attached? %>
+              <td><%= cl_image_tag wand.photo.key%></td>
+            <%else%>
+              <td><%= image_tag "banner.svg"%></td>
+            <%end%>
+          </div>
+          <div class="p-2 pt-0">
+            <h4><%= wand.name  %></h4>
+            <%if wand.available %>
+              <p><br></p>
             <% else %>
-              <td><%= link_to "Show", wand_path(wand), class:'btn btn-secondary'  %></td>
-            <% end %>
-          </p>
+              <p class="small-text">(Wand not available)</p>
+            <%end%>
+            <p>Seller: <strong><%= wand.user.first_name %></strong></p>
+            <p>Price:<strong><%= " $ #{wand.price}" %></strong></p>
+            <p>Quantity: <strong><%= wand.quantity %></strong></p>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>

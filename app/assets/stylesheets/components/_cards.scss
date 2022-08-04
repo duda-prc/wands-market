@@ -15,6 +15,9 @@
   .cards {
     grid-template-columns: 1fr;
   }
+  .card-product h4 {
+    font-size: 16px;
+  }
 }
 
 .card {
@@ -38,11 +41,11 @@
   margin-right: 15px;
 }
 
-.card-product h2 {
+.card-product h4 {
   font-size: 25px;
   font-weight: bold;
   margin: 0;
-  height: 18px;
+  color: $brown;
 }
 
 .card-product p {
@@ -53,17 +56,18 @@
   margin-top: 8px;
 }
 
-.corner-btn {
-  position: absolute;
-  right: 60px;
-  bottom: 20px;
-  width: 40px;
-}
 
 .small-text{
   font-size: 2px;
   font-style: italic;
   margin-bottom: 15px;
-  color: $black;
+  color: $light-gray;
   margin-bottom: 30px;
 }
+
+.cards a {
+  text-decoration: none;
+  color: $white;
+}
+
+
