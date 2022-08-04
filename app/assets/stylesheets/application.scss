@@ -24,8 +24,12 @@ body::after {
   /* Set same as footer's height */
 }
 
+.titling {
+  font-family: $titling-font  !important;
+}
+
 .brand {
-  font-family: $headers-font;
+  font-family: $brand-font;
   font-size: 32px;
 }
 

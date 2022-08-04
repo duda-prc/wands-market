@@ -1,0 +1,23 @@
+// Latest news style
+.news {
+  position: relative;
+}
+
+.news-img {
+  width: 70%;
+  z-index: 2;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.news-info {
+  position: absolute;
+  left: 8rem;
+  top: 3rem;
+  z-index: 5;
+}
+
+.news-info h4 {
+  text-shadow: 3px 2px 4px #000000;
+}

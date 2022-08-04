@@ -6,6 +6,19 @@
   align-items: center;
 }
 
+.card-home {
+  position: relative;
+}
+
+.card-btn {
+  position: absolute;
+  bottom: 2rem;
+}
+
+.card-body {
+  height: 30vh;
+}
+
 @media(max-width: 1300px) {
   .cards-home {
     grid-template-columns: 1fr 1fr 1fr;
@@ -17,6 +30,7 @@
   .cards-home {
     grid-template-columns: 1fr 1fr;
   }
+
 }
 
 @media(max-width: 768px) {
