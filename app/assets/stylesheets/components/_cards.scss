@@ -16,13 +16,14 @@
 }
 
 .card-body {
-  height: 30vh;
+  height: 20rem;
 }
 
 @media(max-width: 1300px) {
   .cards-home {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
 }
 
 
