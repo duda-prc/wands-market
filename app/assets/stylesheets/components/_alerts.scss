@@ -1,0 +1,86 @@
+/*flash*/
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+  width: 30vw;
+  border-radius: 4px;
+  position: absolute;
+  top: 5rem;
+  left: 2rem;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+  width: 30vw;
+  border-radius: 4px;
+  position: absolute;
+  left: 2rem;
+  top: 5rem;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+  width: 30vw;
+  border-radius: 4px;
+  position: absolute;
+  top: 5rem;
+  left: 2rem;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+  width: 30vw;
+  border-radius: 4px;
+  position: absolute;
+  top: 5rem;
+  left: 2rem;
+}
+
+
+// Media queries to adjust alerts
+@media(max-width: 992px) {
+  .alert-alert {
+    width: 50vw;
+  }
+
+  .alert-error {
+    width: 50vw;
+  }
+
+  .alert-success {
+    width: 50vw;
+  }
+
+  .alert-notice {
+    width: 50vw;
+  }
+}
+
+@media(max-width: 576px) {
+  .alert-alert {
+    width: 60vw;
+  }
+
+  .alert-error {
+    width: 60vw;
+  }
+
+  .alert-success {
+    width: 60vw;
+  }
+
+  .alert-notice {
+    width: 60vw;
+  }
+}

@@ -112,15 +112,16 @@
           <% end %>
         </div>
       </div>
-
     </nav>
 
-    <%= yield %>
-
     <%# Devise authentication alerts  %>
+    <!--
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert"><%= alert %></p> -->
+    <%= render 'layouts/messages' %>
     <%# --- %>
+
+    <%= yield %>
 
     <div class="footer bg-dark">
       <div class="footer-links">
