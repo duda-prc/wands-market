@@ -2,8 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nightmare", "sans-serif";
+$body-font: "Bluu_bold", "sans-serif";
+$headers-font: "Bluu_bold", "sans-serif";
+$brand-font: "Bluu_bold_italic", "sans-serif";
+$titling-font: "Bluu_titling", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 @font-face {
@@ -14,10 +16,26 @@ $headers-font: "Nightmare", "sans-serif";
   //   font-url('Gilroy.ttf') format('truetype')
 }
 
-// @font-face {
-//   font-family: "Gilroy Bold";
-//   src: url('GILROY-EXTRABOLD.OTF');
-//   // src: font-url('Gilroy.eot?#iefix') format('embedded-opentype'),
-//   //   font-url('Gilroy.woff') format('woff'),
-//   //   font-url('Gilroy.ttf') format('truetype')
-// }
+@font-face {
+  font-family: "Bluu_bold";
+  src: url('BluuNext-Bold.otf');
+  // src: font-url('Gilroy.eot?#iefix') format('embedded-opentype'),
+  //   font-url('Gilroy.woff') format('woff'),
+  //   font-url('Gilroy.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "Bluu_bold_italic";
+  src: url('BluuNext-Bolditalic.otf');
+  // src: font-url('Gilroy.eot?#iefix') format('embedded-opentype'),
+  //   font-url('Gilroy.woff') format('woff'),
+  //   font-url('Gilroy.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "Bluu_titling";
+  src: url('BluuNext-Titling.otf');
+  // src: font-url('Gilroy.eot?#iefix') format('embedded-opentype'),
+  //   font-url('Gilroy.woff') format('woff'),
+  //   font-url('Gilroy.ttf') format('truetype')
+}
