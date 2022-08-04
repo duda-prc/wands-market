@@ -15,9 +15,6 @@
   .cards {
     grid-template-columns: 1fr;
   }
-  .card-product h4 {
-    font-size: 16px;
-  }
 }
 
 .card {
@@ -45,7 +42,7 @@
   font-size: 25px;
   font-weight: bold;
   margin: 0;
-  color: $brown;
+  color: $darkred;
 }
 
 .card-product p {
@@ -69,5 +66,3 @@
   text-decoration: none;
   color: $white;
 }
-
-
