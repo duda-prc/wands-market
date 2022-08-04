@@ -29,7 +29,7 @@ NAMES.each do |name|
       price: rand(20..100),
       quantity: rand(1..10),
       previous_owners: NAMES.sample,
-      available: [true, false].sample,
+      available: true,
       user: user
     )
   end

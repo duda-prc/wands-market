@@ -22,7 +22,11 @@ class WandsController < ApplicationController
 
   def index
     # All wands that I did not create
-    @wands = policy_scope(Wand).where.not(user: current_user).order(:name)
+    if params[:query].present?
+      @wands = policy_scope(Wand).where.not(user: current_user).order(:name).global_search(params[:query])
+    else
+      @wands = policy_scope(Wand).where.not(user: current_user).order(:name)
+    end
   end
 
   def show

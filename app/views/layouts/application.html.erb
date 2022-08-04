@@ -27,12 +27,23 @@
         <% end %>
 
         <!-- Search Form -->
-        <form class="d-flex flex-grow-1" role="search">
+        <div class="flex-grow-1">
+        <%= form_tag wands_path, method: :get, class:'form-group w-75 d-flex' do %>
+          <%= text_field_tag :query,
+                              params[:query],
+                              class: "form-control border-primary",
+                              placeholder: "Search for a wand"
+          %>
+          <button class="btn btn-outline-primary" type="submit"><i class="fa-brands fa-searchengin"></i></button>
+        <% end %>
+        </div>
+
+        <%# <form class="d-flex flex-grow-1" role="search">
           <div class="form-group w-75">
             <input class="form-control border-primary" type="search" placeholder="Search for a wand" aria-label="Search">
           </div>
           <button class="btn btn-outline-primary" type="submit"><i class="fa-brands fa-searchengin"></i></button>
-        </form>
+        </form> %>
 
 
         <!-- User info  = ShoppingCart + User avatar (dropdown) -->
