@@ -1,12 +1,20 @@
 <div class="container  d-flex my-3">
+  <div class="container">
+    <%= simple_form_for :search, url: wands_path, method: "GET" do |f| %>
+      <h3>Filters</h3>
+      <div style="overflow-y: scroll; height: 40vh;">
+        <label for="woods">Wood:</label>
+        <%= f.input :woods, collection: Wand::WOOD, as: :check_boxes, legend_tag: false %>
+        <%# <%= f.collection_check_boxes :woods, [Wand::WOOD] %>
+      </div>
+      <hr>
+      <label for="cores">Cores:</label>
+      <%= f.input :cores, label: "Cores", collection: Wand::CORE, as: :check_boxes, legend_tag: false %>
+      <%= f.submit "Search", class: "btn btn-primary" %>
+      <%= link_to "Reset", wands_path  %>
+    <% end %>
+  </div>
 
-  <%= simple_form_for :search, url: wands_path, method: "GET" do |f| %>
-    <h3>Filters</h3>
-    <%= f.input :woods, label: "Woods",  collection: Wand::WOOD, as: :check_boxes %>
-    <%= f.input :cores, label: "Cores", collection: Wand::CORE, as: :check_boxes %>
-    <%= f.submit "Search", class: "btn btn-primary" %>
-    <%= link_to "Reset", wands_path  %>
-  <% end %>
 
   <div class="cards">
     <% @wands.each do |wand| %>

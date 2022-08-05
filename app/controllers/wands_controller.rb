@@ -26,8 +26,6 @@ class WandsController < ApplicationController
       @wands = policy_scope(Wand).where.not(user: current_user).order(:name).global_search(params[:query])
     elsif params['search']
       @filter = params["search"]["woods"].concat(params["search"]["cores"]).flatten.reject(&:blank?)
-
-      @wands = policy_scope(Wand).where.not(user: current_user).
     else
       @wands = policy_scope(Wand).where.not(user: current_user).order(:name)
     end
