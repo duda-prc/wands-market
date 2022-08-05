@@ -18,4 +18,5 @@ class Wand < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
 end

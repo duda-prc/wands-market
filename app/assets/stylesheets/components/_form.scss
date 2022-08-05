@@ -6,3 +6,7 @@
 .form-control:hover:not(:disabled):not([readonly])::file-selector-button {
   color: black !important;
 }
+
+.form-check-input {
+  background-color: $gray;
+}

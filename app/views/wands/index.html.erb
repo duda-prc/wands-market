@@ -1,9 +1,13 @@
-<div class="container my-3">
+<div class="container  d-flex my-3">
 
-  <%# Do a categories header %>
+  <%= simple_form_for :search, url: wands_path, method: "GET" do |f| %>
+    <h3>Filters</h3>
+    <%= f.input :woods, label: "Woods",  collection: Wand::WOOD, as: :check_boxes %>
+    <%= f.input :cores, label: "Cores", collection: Wand::CORE, as: :check_boxes %>
+    <%= f.submit "Search", class: "btn btn-primary" %>
+    <%= link_to "Reset", wands_path  %>
+  <% end %>
 
-  <h1>Wands Market</h1>
-  <p>wands available to buy</p>
 
   <table class="table mx-3 text-white">
     <thead>
