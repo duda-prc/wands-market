@@ -11,9 +11,30 @@
 @import "components/index";
 
 // Custom styles
+body {
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 100px;
+  /* Set same as footer's height */
+}
+
+.titling {
+  font-family: $titling-font  !important;
+}
+
 .brand {
-  font-family: $headers-font;
+  font-family: $brand-font;
   font-size: 32px;
+}
+
+.brand-img {
+  height: 30px;
 }
 
 .navbar {
@@ -22,4 +43,25 @@
 
 .text-white {
   color: white !important;
+}
+
+.carousel-item img {
+  height: 100px;
+}
+
+// Media queries to adjust Navbar
+@media(max-width: 576px) {
+  #user-info {
+    display: none;
+  }
+
+  .navbar-brand {
+    display: none;
+  }
+}
+
+@media(min-width: 576px) {
+  #offcanvas-info {
+    display: none;
+  }
 }

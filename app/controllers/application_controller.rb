@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_shoppingcart
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  include Pundit
+  include Pundit::Authorization
 
   # Pundit: white-list approach.
   after_action :verify_authorized, except: %i[index mywands], unless: :skip_pundit?

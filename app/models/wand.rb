@@ -1,5 +1,5 @@
 class Wand < ApplicationRecord
-  CORE = %w[Unicorn Dargon Phoenix Troll].freeze
+  CORE = %w[Unicorn Dragon Phoenix Troll].freeze
   WOOD = %w[Acacia Alder Apple Ash Aspen Beech Blackthorn Black Walnut Cedar Cherry Chestnut Cypress Dogwood Ebony Elder Elm Fir Hawtorn Hazel Holly Hornbeam Larch Laurel Maple Pine Reed Rowan Rosewood Walnut Yew].freeze
   MANUFACTURE = %w[Ollivander Gregorovitch Beauvais Jonker].freeze
   belongs_to :user

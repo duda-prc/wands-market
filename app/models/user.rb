@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  PHOTO = Mime::LOOKUP.keys.keep_if{ |v| v =~ /image/ }
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

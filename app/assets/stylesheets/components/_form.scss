@@ -1,0 +1,8 @@
+// Style  for file upload
+.form-control::file-selector-button {
+  background-color: $black;
+}
+
+.form-control:hover:not(:disabled):not([readonly])::file-selector-button {
+  color: black !important;
+}

@@ -6,109 +6,139 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# Inserted favicon  %>
+    <%= favicon_link_tag 'favicon.ico'  %>
+
+    <!-- AOS animation -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg border-bottom navbar-dark bg-dark border-secondary">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark border-secondary border-bottom border-opacity-25">
+
       <div class="container-fluid">
+        <!-- Brand - Wands Market -->
         <%= link_to root_path, class: 'navbar-brand' do  %>
-          <%= image_tag 'magic_wand.svg', alt:'wands market', style: 'height: 30px; width:30px;' %>
+          <%= image_tag 'magic_wand.svg', alt:'wands market', class:"brand-img"%>
           <span class="brand">Wands Market</span>
         <% end %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <%= link_to 'Home', root_path, class:'nav-link' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Wands', wands_path, class:'nav-link' %>
-            </li>
 
-            <li class="nav-item dropdown">
-
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Sell wands
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li>
-                  <%= link_to 'My wands', my_wands_path, class:'dropdown-item'  %>
-                </li>
-                <li>
-                  <%= link_to 'Add a wand',new_wand_path, class:'dropdown-item'  %>
-                </li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-          </ul>
-
-
-          <div class="nav-item mx-2">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="align-self-center mx-3">
-                    <%= link_to shoppingcart_path , class:'nav-link' do  %>
-                      <%# if it becomes hard to edit this logo we can put a fontawesome%>
-                      <%= image_tag 'https://icons.veryicon.com/png/o/miscellaneous/business-linear-icon-2/empty-cart.png',
-                                    alt:'empty cart',
-                                    style: 'height: 30px; width:30px;' %>
-                    <% end %>
-                </li>
-
-                <div class="navbar-nav me-auto">
-                  <%#Avatar photo with cloudinary%>
-                  <li class="bg-transparent align-items-yl-center nav-item dropdown">
-                    <div class="text-center avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown">
-                      <% if user_signed_in? %>
-                        <% if current_user.photo.attached? %>
-                          <%= cl_image_tag("#{current_user.photo.key}.png", :transformation=>[
-                            :width=>50, :height=>50, :gravity=>"face", :radius=>"max", :crop=>"fill"
-                          ])%>
-                        <% else %>
-                          <%#in case user don't have a photo%>
-                          <i class="fa-solid fa-wand-sparkles"></i>
-                        <% end %>
-                      <% end %>
-                    </div>
-
-                    <% if user_signed_in? %>
-                      <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
-                          <%= link_to "edit", edit_user_registration_path, class:"dropdown-item" %>
-                          <%= link_to "log out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
-                      </div>
-                    <%end%>
-
-                    <%#Text with person name%>
-                    <div class="text-center">
-                      <% if user_signed_in? %>
-                        <a style="font-size:15px" class="nav-link disabled">Hello <%= current_user.first_name %>!</a>
-                      <% else %>
-                        <%= link_to "log in", user_session_path , class:'nav-link' %>
-                      <% end %>
-                    </div>
-                  </li>
-                </div>
-              </ul>
+        <!-- Search Form -->
+        <form class="d-flex flex-grow-1" role="search">
+          <div class="form-group w-75">
+            <input class="form-control border-primary" type="search" placeholder="Search for a wand" aria-label="Search">
           </div>
+          <button class="btn btn-outline-primary" type="submit"><i class="fa-brands fa-searchengin"></i></button>
+        </form>
 
-          <%# <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form> %>
+
+        <!-- User info  = ShoppingCart + User avatar (dropdown) -->
+        <ul class="navbar-nav me-auto align-items-center">
+          <!-- Shopping cart -->
+          <li class="nav-item me-1">
+            <%= link_to shoppingcart_path , class:'nav-link p-0' do  %>
+              <i class="fa-solid fa-cart-shopping" style="width:30px;"></i>
+            <% end %>
+          </li>
+        </ul>
+
+        <!-- Avatar photo with cloudinary -->
+        <ul class="navbar-nav me-auto" id="user-info">
+          <li class="nav-item dropdown">
+            <% if user_signed_in? %>
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag("#{current_user.photo.key}.png", :transformation=>[
+                  :width=>50, :height=>50, :gravity=>"face", :radius=>"max", :crop=>"fill"
+                ], class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown"}, 'aria-haspopup': true, 'aria-expanded': false) %>
+              <% else %>
+                <!-- in case user don't have a photo -->
+                <i class="fa-solid fa-wand-sparkles avatar dropdown-toggle", id= "navbarDropdown", data-bs-toggle="dropdown", aria-haspopup="true",aria-expanded="false" ></i>
+              <% end %>
+              <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Edit", edit_user_registration_path, class:"dropdown-item" %>
+                <%= link_to "History", shopping_carts_path, class:"dropdown-item" %>
+                <%# <hr class="dropdown-divider"> %>
+                <%= link_to 'My wands', my_wands_path, class:'dropdown-item'  %>
+                <a class="dropdown-item" href="#">My Sells</a>
+                <hr class="dropdown-divider border-secondary">
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+              </div>
+            <% else %>
+              <%= link_to 'Log in', new_user_session_path , class:'nav-link' %>
+            <% end %>
+          </li>
+        </ul>
+
+        <!-- Offcanvas menu -->
+        <div id="offcanvas-info" class="navbar-nav">
+          <% if user_signed_in? %>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag("#{current_user.photo.key}.png", :transformation=>[
+                        :width=>50, :height=>50, :gravity=>"face", :radius=>"max", :crop=>"fill"
+                      ], class: "avatar") %>
+              <% else %>
+                <i class="fa-solid fa-wand-sparkles avatar"></i>
+              <% end %>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Wands Market</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <%= link_to "Edit", edit_user_registration_path, class:"nav-link active" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "History", shopping_carts_path, class:"nav-link active" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'My wands', my_wands_path, class:'nav-link active'  %>
+                </li>
+                <hr class="border-secondary">
+                <li class="nav-item">
+                  <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"nav-link" %>
+                </li>
+              </ul>
+            </div>
+          <% else %>
+            <%= link_to 'Log in', new_user_session_path , class:'nav-link' %>
+          <% end %>
         </div>
       </div>
     </nav>
 
-    <%= yield %>
-
     <%# Devise authentication alerts  %>
+    <!--
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="alert"><%= alert %></p> -->
+    <%= render 'layouts/messages' %>
     <%# --- %>
 
+    <%= yield %>
+
+    <div class="footer bg-dark">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        Find your magic <i class="fa-solid fa-hat-wizard"></i> here!
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

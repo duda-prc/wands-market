@@ -1,11 +1,113 @@
-<%# <%= image_tag 'banner.svg', alt:'banner'  %>
-
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5)), url(https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80);">
   <div class="container">
     <h1>The <strong>wands market</strong> will find you <strong>the perfect wand</strong>!</h1>
-    <p>Change your life selling and buying wands in the best market.</p>
-    <a class="btn btn-flat" href="#">Sign up!</a>
+    <p class="titling">Buy and sell various wands, embrace the wizard within you</p>
+    <%= link_to 'Sign up!',new_user_registration_path , class:'btn btn-flat btn-primary' %>
+  </div>
+  <div class="container">
+    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+      <path  class="star" fill="#FFFFFF" d="M147,147c-25.5,0-25.787,26.359-25.787,26.359C121.213,150.438,96,147,96,147
+	c25.787,0,25.213-26.359,25.213-26.359C121.213,147,147,147,147,147z"/>
+      <path  class="star1" fill="#FFFFFF" d="M229,112c-12.5,0-12.641,12.921-12.641,12.921C216.359,113.685,204,112,204,112
+	c12.641,0,12.359-12.921,12.359-12.921C216.359,112,229,112,229,112z"/>
+      <path class="star2" fill="#FFFFFF" d="M189.413,84c-36.913,0-37.328,38.157-37.328,38.157c0-33.181-36.498-38.157-36.498-38.157
+	c37.328,0,36.498-38.157,36.498-38.157C152.085,84,189.413,84,189.413,84z"/>
+    </svg>
   </div>
 </div>
 
+<h4 class="text-center text-white mt-5 titling">Find the perfect wand</h4>
 
+<div class="container mt-4 p-0">
+  <div class="cards-home">
+    <div class="card bg-dark mx-auto card-home" data-aos="fade-down" style="width: 18rem; heigh: 100px;">
+      <div class="card-header bg-dark">
+        Woods
+      </div>
+      <%= image_tag 'https://static.wixstatic.com/media/70530e_01060a29e5f849c1bf0ff5d67073d57a~mv2.jpg/v1/fill/w_498,h_498,al_c,q_85,usm_0.66_1.00_0.01/70530e_01060a29e5f849c1bf0ff5d67073d57a~mv2.jpg', heigh: '100', width:'80' , class:'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-title">Acacia</h5>
+        <p class="card-text">A very unusual wand wood, which I have found creates tricky wands that often refuse to produce magic for any but their owner.</p>
+        <a href="#" class="btn btn-primary card-btn">Acacia wands</a>
+      </div>
+    </div>
+    <div class="card bg-dark mx-auto card-home" data-aos="fade-down" style="width: 18rem; heigh: 50vh;">
+      <div class="card-header bg-secondary">
+        Featured
+      </div>
+      <%= image_tag 'https://cdn.shopify.com/s/files/1/2659/9670/products/ww11_250x250@2x.jpg?v=1643313092', heigh: '100', width:'80' , class:'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-title">Unicorn core</h5>
+        <p class="card-text">Unicorn hair generally produces the most consistent magic, and is least subject to fluctuations and blockages. Wands with unicorn cores are generally the most difficult to turn to the Dark Arts.</p>
+        <a href="#" class="btn btn-primary card-btn">Unicorn wands</a>
+      </div>
+    </div>
+    <div class="card bg-dark mx-auto card-home" data-aos="fade-down" style="width: 18rem; heigh: 50vh;">
+      <div class="card-header">
+        Wand makers
+      </div>
+      <%= image_tag 'ollivander.jpg', heigh: '100', width:'80', class:'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-title">Ollivander</h5>
+        <p class="card-text"> Ollivander is the best known and most experienced in Britain. The wandmaking establishment had been making wands since 382 BC in Diagon Alley.</p>
+        <a href="#" class="btn btn-primary card-btn">Ollivander wands</a>
+      </div>
+    </div>
+    <div class="card bg-dark mx-auto card-home" data-aos="fade-down" style="width: 18rem; heigh: 50vh;">
+      <div class="card-header">
+        Quality
+      </div>
+      <%= image_tag 'https://media.giphy.com/media/mVoj8dmCQUdNK9N1NQ/giphy.gif' , heigh: '100', width:'80', class:'card-img-top' %>
+      <div class="card-body">
+        <h5 class="card-title">Flexibility</h5>
+        <p class="card-text">Wand flexibility or rigidity denoted the degree of adaptability and willingness to change possessed by the wand-and-owner pair.</p>
+        <a href="#" class="btn btn-primary card-btn">Quality certificate</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h4 class="text-center text-white mt-5 mb-3 titling">The <strong>best</strong> manufactures</h4>
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade w-25 mx-auto" data-bs-ride="true" data-aos="fade-left">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5000">
+      <%= image_tag 'LOGO1.png', class:"d-block mx-auto", alt:'logo1'  %>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag 'LOGO2.png', class:"d-block mx-auto", alt:'logo2'  %>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag 'LOGO3.jpg', class:"d-block mx-auto", alt:'logo3'  %>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag 'LOGO4.jpg', class:"d-block mx-auto", alt:'logo4'  %>
+    </div>
+    <div class="carousel-item" data-bs-interval="5000">
+      <%= image_tag 'LOGO5.jpg', class:"d-block mx-auto", alt:'logo5'  %>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<div class='d-flex container mt-5'>
+  <hr class="w-75">
+  <h4 class="text-white titling mx-2 news">Latest news</h4>
+</div>
+
+<div class='container news mb-5' data-aos="fade-right" data-aos-duration="2000">
+
+  <%= image_tag 'https://images.ctfassets.net/usf1vwtuqyxm/bxlTGHa0D23KGEb5V3Lcc/82994a0f8cd211d257365d44f6590933/Cursed_Child_Albus_Scorpius.jpg?w=1008&fm=webp', class:'news-img mx-auto', alt:'harry-potter-play'  %>
+
+  <div class="news-info">
+    <h4 class="text-white">The cursed child</h4>
+    <%= link_to 'See more!', 'https://www.wizardingworld.com/collections/cursed-child-collection', class:'btn btn-primary' %>
+  </div>
+</div>

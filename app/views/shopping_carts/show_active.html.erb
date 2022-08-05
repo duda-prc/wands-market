@@ -10,11 +10,10 @@
         <%= link_to 'Search wands!', wands_path ,class:'btn btn-primary' %>
       </div>
     <% else %>
-      <table class="table h-30">
+      <table class="table table-dark h-30 .table-striped">
         <thead>
           <tr>
-            <th scope="col">User selling</th>
-            <th scope="col">Wand name</th>
+            <th scope="col">Wand</th>
             <th scope="col">Wand price ($)</th>
             <th scope="col">Quantity</th>
             <th scope="col">Total ($) </th>
@@ -24,8 +23,7 @@
         <tbody>
           <% @shopping_cart.shopping_items.each do |item| %>
             <tr>
-              <td><%= item.wand.user.first_name  %></td>
-              <td><%= item.wand.name  %></td>
+              <td><%= link_to "#{item.wand.name}", wand_path(item.wand), class:'btn'  %></td>
               <td>$ <%= item.wand.price  %></td>
               <td><%= item.quantity  %></td>
               <td>$ <%= (item.wand.price * item.quantity)  %></td>
@@ -40,7 +38,9 @@
           <% end %>
         </tbody>
       </table>
+      <%= link_to 'Buy', shoppingcart_buy_path, class: 'btn btn-success my-3'  %>
     <% end %>
-
   </div>
+
+   <%= link_to "Back", :back, class:'btn' %>
 </div>
