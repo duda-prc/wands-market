@@ -41,9 +41,11 @@
           <li class="nav-item me-1">
             <%= link_to shoppingcart_path , class:'nav-link p-0' do  %>
               <i class="fa-solid fa-cart-shopping" style="width:30px;"></i>
-              <div class="cart-amount">
-                <%= @shopping_cart.shopping_items.pluck(:quantity).reduce(:+) %>
-              </div>
+                <div class="card-circle">
+                  <div class="cart-amount">
+                    <%= @shopping_cart.shopping_items.pluck(:quantity).reduce(:+) %>
+                  </div>
+                </div>
             <% end %>
           </li>
         </ul>
