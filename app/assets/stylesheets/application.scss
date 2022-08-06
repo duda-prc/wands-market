@@ -49,6 +49,26 @@ body::after {
   height: 100px;
 }
 
+.nav-item {
+  position: relative;
+  size: 40px;
+  margin: 0 10px;
+}
+
+.cart-amount {
+  border-radius: 50%;
+  background-color: $darkred;
+  color: $white;
+  text-align: center;
+  font-size: 15px;
+  position: absolute;
+  top: -17px;
+  right: -5px;
+  size: 20px;
+  padding: 0 10px;
+}
+
+
 // Media queries to adjust Navbar
 @media(max-width: 576px) {
   #user-info {
