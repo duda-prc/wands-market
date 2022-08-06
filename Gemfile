@@ -69,3 +69,9 @@ gem 'devise'
 gem 'simple_form'
 gem "autoprefixer-rails", "10.2.5"
 gem "font-awesome-sass", "~> 6.1"
+
+# Search gem
+gem 'pg_search'
+
+# Seeding wands names
+gem 'faker'

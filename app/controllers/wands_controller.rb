@@ -22,7 +22,21 @@ class WandsController < ApplicationController
 
   def index
     # All wands that I did not create
-    @wands = policy_scope(Wand).where.not(user: current_user).order(:name)
+
+    if params[:query].present?
+      @wands = policy_scope(Wand).where.not(user: current_user).order(:name).global_search(params[:query])
+    elsif params['search'].present?
+      if params['search']['woods'][1] && params['search']['cores'][1]
+        @wands = policy_scope(Wand).where.not(user: current_user).where(wood: params['search']['woods'][1], core: params['search']['cores'][1])
+      elsif params['search']['woods'][1]
+
+        @wands = policy_scope(Wand).where.not(user: current_user).where(wood: params['search']['woods'][1])
+      else
+        @wands = policy_scope(Wand).where.not(user: current_user).where(core: params['search']['cores'][1])
+      end
+    else
+      @wands = policy_scope(Wand).where.not(user: current_user).order(:name)
+    end
   end
 
   def show
@@ -52,6 +66,11 @@ class WandsController < ApplicationController
   def mywands
     # Show all wands the user has created
     @wands = policy_scope(Wand).where(user: current_user).order(:name)
+  end
+
+  def user
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   private

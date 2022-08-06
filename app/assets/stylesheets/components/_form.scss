@@ -6,3 +6,16 @@
 .form-control:hover:not(:disabled):not([readonly])::file-selector-button {
   color: black !important;
 }
+
+.form-check-input {
+  background-color: $gray;
+}
+
+.form-filters {
+  width: 10rem;
+}
+
+.form-woods {
+  overflow-y: scroll;
+  height: 40vh;
+}

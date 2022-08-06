@@ -10,7 +10,7 @@
     <%= favicon_link_tag 'favicon.ico'  %>
 
     <!-- AOS animation -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <%# <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
@@ -22,18 +22,21 @@
       <div class="container-fluid">
         <!-- Brand - Wands Market -->
         <%= link_to root_path, class: 'navbar-brand' do  %>
-          <%= image_tag 'magic_wand.svg', alt:'wands market', class:"brand-img"%>
+          <%= image_tag 'magic_wand_red.svg', alt:'wands market', class:"brand-img"%>
           <span class="brand">Wands Market</span>
         <% end %>
 
         <!-- Search Form -->
-        <form class="d-flex flex-grow-1" role="search">
-          <div class="form-group w-75">
-            <input class="form-control border-primary" type="search" placeholder="Search for a wand" aria-label="Search">
-          </div>
+        <div class="flex-grow-1">
+        <%= form_tag wands_path, method: :get, class:'form-group w-75 d-flex' do %>
+          <%= text_field_tag :query,
+                              params[:query],
+                              class: "form-control border-primary",
+                              placeholder: "Search for a wand"
+          %>
           <button class="btn btn-outline-primary" type="submit"><i class="fa-brands fa-searchengin"></i></button>
-        </form>
-
+        <% end %>
+        </div>
 
         <!-- User info  = ShoppingCart + User avatar (dropdown) -->
         <ul class="navbar-nav me-auto align-items-center">
@@ -65,10 +68,12 @@
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag("#{current_user.photo.key}.png", :transformation=>[
                   :width=>50, :height=>50, :gravity=>"face", :radius=>"max", :crop=>"fill"
-                ], class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown"}, 'aria-haspopup': true, 'aria-expanded': false) %>
+                ], class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown"}, 'aria-haspopup': true, 'aria-expanded': false) %>
               <% else %>
                 <!-- in case user don't have a photo -->
-                <i class="fa-solid fa-wand-sparkles avatar dropdown-toggle", id= "navbarDropdown", data-bs-toggle="dropdown", aria-haspopup="true",aria-expanded="false" ></i>
+                <%= image_tag 'magic_wand.svg', class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown"}, 'aria-haspopup': true, 'aria-expanded': false %>
+
+                <%# <i class="fa-solid fa-wand-sparkles avatar-bordered dropdown-toggle", id= "navbarDropdown", data-bs-toggle="dropdown", aria-haspopup="true",aria-expanded="false" ></i> %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Edit", edit_user_registration_path, class:"dropdown-item" %>
@@ -88,13 +93,13 @@
         <!-- Offcanvas menu -->
         <div id="offcanvas-info" class="navbar-nav">
           <% if user_signed_in? %>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
               <% if current_user.photo.attached? %>
                 <%= cl_image_tag("#{current_user.photo.key}.png", :transformation=>[
-                        :width=>50, :height=>50, :gravity=>"face", :radius=>"max", :crop=>"fill"
-                      ], class: "avatar") %>
+                        :width=>32, :height=>32, :gravity=>"face", :radius=>"max", :crop=>"fill"
+                      ], class: "avatar-bordered") %>
               <% else %>
-                <i class="fa-solid fa-wand-sparkles avatar"></i>
+                <%= image_tag 'magic_wand.svg', class: "avatar-bordered" %>
               <% end %>
             </button>
             <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
@@ -149,9 +154,5 @@
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>

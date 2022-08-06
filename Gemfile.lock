@@ -100,6 +100,8 @@ GEM
       railties (>= 3.2)
     erubi (1.10.0)
     execjs (2.7.0)
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     font-awesome-sass (6.1.2)
       sassc (~> 2.0)
@@ -136,6 +138,9 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.1)
+    pg_search (2.3.6)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     public_suffix (4.0.7)
     puma (5.6.4)
       nio4r (~> 2.0)
@@ -260,10 +265,12 @@ DEPENDENCIES
   cloudinary (~> 1.16.0)
   devise
   dotenv-rails
+  faker
   font-awesome-sass (~> 6.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
+  pg_search
   puma (~> 5.0)
   pundit
   rails (~> 6.1.6, >= 6.1.6.1)
@@ -281,4 +288,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.3.18
+   2.3.5

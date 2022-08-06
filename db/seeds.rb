@@ -1,5 +1,6 @@
 # Seeding with Harry Potter characters
 # And associating wands
+require 'faker'
 
 NAMES = %w[Harry\ Potter Draco\ Malfoy Hermione\ Granger Ron\ Weasley Neville\ Longbottom Luna\ Lovegood Rúbeo\ Hagrid Sirius\ Black Fleur\ Delacour James\ Potter Lilian\ Potter]
 
@@ -19,15 +20,17 @@ NAMES.each do |name|
   user.save!
 
   puts("Creating a wand for #{name}")
-  Wand.create!(
-    name: "#{first_name}'s wand",
-    core: Wand::CORE.sample,
-    wood: Wand::WOOD.sample,
-    manufacture: Wand::MANUFACTURE,
-    price: rand(20..100),
-    quantity: rand(1..10),
-    previous_owners: NAMES.sample,
-    available: [true, false].sample,
-    user: user
-  )
+  3.times do
+    Wand.create!(
+      name: Faker::Cosmere.shard_world,
+      core: Wand::CORE.sample,
+      wood: Wand::WOOD.sample,
+      manufacture: Wand::MANUFACTURE.sample,
+      price: rand(20..100),
+      quantity: rand(1..10),
+      previous_owners: NAMES.sample,
+      available: true,
+      user: user
+    )
+  end
 end

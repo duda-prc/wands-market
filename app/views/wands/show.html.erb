@@ -1,28 +1,44 @@
-<div class="container my-3">
-<div class="d-flex w-100 justify-content-start align-items-center">
-  <div class="card p-3 mx-2 text-bg-dark">
-    <h1> <%= @wand.name %></h1>
-    <p> User selling => <%= @wand.user.first_name %></p>
-    <p> Price => $ <%= @wand.price %></p>
-    <p> Stock => <%= @wand.quantity %></p>
-    <div class="mx-auto pb-3">
-      <% if @wand.photo.attached? %>
-        <%= cl_image_tag @wand.photo.key, height: 80, width: 80, crop: :fill %>
-      <%else%>
-        <%= image_tag "banner.svg", height: 80, width: 80, crop: :fill %>
-      <%end%>
+<div class="container my-5">
+<div class="d-flex w-100 justify-content-start align-items-center mx-auto">
+  <div class="card-trip bg-dark border border-secondary border-opacity-25">
+    <% if @wand.photo.attached? %>
+      <%= cl_image_tag @wand.photo.key %>
+    <%else%>
+      <%= image_tag "banner.svg"%>
+    <%end%>
+
+    <div class="card-trip-infos border-top border-secondary border-opacity-25">
+      <div>
+        <h2><%= @wand.name %></h2>
+        <p>Wood: <%= @wand.wood %></p>
+        <p>Core: <%= @wand.core %></p>
+      </div>
+      <%# Link to user profile %>
+      <%= link_to about_path(@wand.user) do %>
+        <% if @wand.user.photo.attached? %>
+          <%= cl_image_tag("#{@wand.user.photo.key}.png", :transformation=>[
+                    :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill"
+                  ], class: "avatar-bordered card-trip-user")%>
+
+        <% else %>
+          <%= image_tag 'magic_wand.svg', class:'card-trip-user avatar-bordered'  %>
+        <% end %>
+      <% end %>
     </div>
 
     <% if @wand.available && @wand.quantity > 0 %>
-      <%= link_to 'Available', @wand, class: 'btn btn-success my-2'  %>
+      <%= link_to 'Available', @wand, class: 'btn btn-success m-2 '  %>
     <% else %>
-      <%= link_to 'Not Available', @wand, class: 'btn btn-secondary disabled my-2'  %>
+      <%= link_to 'Not Available', @wand, class: 'btn btn-secondary disabled m-2'  %>
     <% end %>
   </div>
 
 
   <% if @wand.user != current_user %>
-    <div class="card p-3 mx-2 text-bg-dark">
+    <div class="card mx-4 text-bg-dark">
+      <div class="card-header bg-secondary">
+        Price ʛ <%= @wand.price %>
+      </div>
       <%= simple_form_for [@wand, @shopping_item] do |f| %>
         <%= f.input :quantity, input_html: { min: '1'} %>
         <% if @wand.available && @wand.quantity > 0 %>
@@ -47,6 +63,10 @@
       <%= link_to 'Back', my_wands_path, class:'btn btn-primary' %>
     <% else %>
       <%= link_to 'Back', wands_path, class:'btn btn-primary' %>
-    <% end %>
+    <% end %> |
+    <%= link_to 'About user', about_path(@wand.user), class:'btn btn-primary'  %>
   </div>
+
+
+
 </div>

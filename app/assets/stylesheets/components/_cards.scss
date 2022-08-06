@@ -1,14 +1,8 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
-  margin: 15px;
-}
-
-.card {
-  margin: 10px;
-  background-color: $gray;
-  position: relative;
+  margin: 0;
 }
 
 .card-product {
@@ -17,42 +11,37 @@
   box-shadow: 0 0 15px (#4E4E50, 0.2);
   display: flex;
   align-items: center;
+  width: 20rem;
 }
 
 .card-product img {
   height: 80%;
-  width: 120px;
   object-fit: cover;
-  margin-right: 15px;
+  border: 1px solid $gray;
+  border-radius: 4px;
+  padding: 1rem;
 }
 
-.card-product h4 {
-  font-size: 25px;
-  font-weight: bold;
-  margin: 0;
-  color: $darkred;
-}
 
-.card-product p {
-  font-size: 15px;
-  line-height: 1.3;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+.card-product .card-product-infos {
+  padding: 16px;
 }
-
 
 .small-text {
   font-size: 2px;
   font-style: italic;
-  margin-bottom: 15px;
+  padding: 0;
+  margin: 0;
   color: $light-gray;
-  margin-bottom: 30px;
 }
 
 .cards a {
   text-decoration: none;
   color: $white;
+}
+
+.cards a:hover {
+  opacity: 0.9;
 }
 
 .cards-home {
@@ -75,7 +64,64 @@
   height: 20rem;
 }
 
+.card-trip {
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.card-trip>img {
+  height: 11rem;
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-trip .card-trip-infos {
+  padding: 32px 20px 8px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 0.6rem;
+  top: -0.6rem;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+  background-color: $black;
+}
+
+.card-trip-pricing {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background-color: $black;
+  padding: 2px;
+  border: 1px solid $light-gray;
+  border-radius: 4px;
+}
+
+
 @media(max-width: 1300px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .cards-home {
     grid-template-columns: 1fr 1fr 1fr;
   }
