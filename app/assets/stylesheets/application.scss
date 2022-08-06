@@ -73,6 +73,16 @@ body::after {
   size: 20px;
 }
 
+.card-circle {
+  border-radius: 50%;
+  font-size: 15px;
+  position: absolute;
+  top: -13px;
+  right: -5px;
+  height: 20px;
+  width: 20px;
+}
+
 
 // Media queries to adjust Navbar
 @media(max-width: 576px) {
