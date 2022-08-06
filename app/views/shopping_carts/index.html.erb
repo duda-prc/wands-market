@@ -10,7 +10,7 @@
             <li> <%= link_to "#{item.wand.name}", wand_path(item.wand), class:'btn' %> | Number: <%= item.quantity %></li>
           <% end %>
         </ol>
-        <p>Cart created at: <%= cart.created_at %></p>
+        <p>Cart created at: <%= l cart.created_at, format: "%d/%m/%y" %></p>
       </div>
     <% end %>
   <% end %>
