@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get '/shoppingcart', to: 'shopping_carts#show_active'
   get '/shoppingcart/buy', to: 'shopping_carts#buy'
 
+  get 'about/:id', to: 'wands#user', as: 'about'
+
   root to: 'pages#home'
 end

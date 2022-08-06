@@ -1,11 +1,10 @@
-<div class="container  d-flex my-3">
-  <div class="container">
+<div class="container d-flex my-4 mx-auto">
+  <div class="container m-0 form-filters">
     <%= simple_form_for :search, url: wands_path, method: "GET" do |f| %>
       <h3>Filters</h3>
-      <div style="overflow-y: scroll; height: 40vh;">
+      <div class="form-woods">
         <label for="woods">Wood:</label>
         <%= f.input :woods, collection: Wand::WOOD, as: :check_boxes, legend_tag: false %>
-        <%# <%= f.collection_check_boxes :woods, [Wand::WOOD] %>
       </div>
       <hr>
       <label for="cores">Cores:</label>
@@ -15,32 +14,36 @@
     <% end %>
   </div>
 
+  <div class="cards flex-grow-1">
+    <% if @wands.empty? %>
+      <p>No matches</p>
+    <% else %>
+      <% @wands.each do |wand| %>
+        <%= link_to wand_path(wand) do %>
 
-  <div class="cards">
-    <% @wands.each do |wand| %>
-      <%= link_to wand_path(wand) do %>
-        <div class="p-2 card bg-dark">
-          <div class="p-2 card-product">
-            <div class="p-2 card-product img">
-              <% if wand.photo.attached? %>
-                <td><%= cl_image_tag wand.photo.key%></td>
-              <%else%>
-                <td><%= image_tag "banner.svg"%></td>
-              <%end%>
-            </div>
-            <div class="p-2 pt-0">
-              <h4><%= wand.name  %></h4>
-              <%if wand.available %>
-                <p><br></p>
+          <div class="card-trip bg-dark border border-secondary border-opacity-25">
+            <% if wand.photo.attached? %>
+              <%= cl_image_tag wand.photo.key %>
+            <%else%>
+              <%= image_tag "banner.svg"%>
+            <%end%>
+
+            <div class="card-trip-infos border-top border-secondary border-opacity-25">
+              <div>
+                <h2><%= wand.name %></h2>
+              </div>
+              <% if wand.user.photo.attached? %>
+                <%= cl_image_tag("#{wand.user.photo.key}.png", :transformation=>[
+                  :width=>40, :height=>40, :gravity=>"face", :radius=>"max", :crop=>"fill"
+                ], class: "avatar-bordered card-trip-user")%>
               <% else %>
-                <p class="small-text">(Wand not available)</p>
-              <%end%>
-              <p>Seller: <strong><%= wand.user.first_name %></strong></p>
-              <p>Price:<strong><%= " $ #{wand.price}" %></strong></p>
-              <p>Quantity: <strong><%= wand.quantity %></strong></p>
+                <%= image_tag 'magic_wand.svg', class:'card-trip-user avatar-bordered'  %>
+              <% end %>
+              <p class="small-text"><%= wand.user.first_name  %></p>
             </div>
+            <h2 class="card-trip-pricing text-white">ʛ <%= wand.price  %></h2>
           </div>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

@@ -1,0 +1,29 @@
+<div class="container my-4">
+  <div class="container bg-dark d-flex">
+    <% if @user.photo.attached? %>
+      <%= cl_image_tag @user.photo.key , class:'profile-pic'%>
+    <% else %>
+      <%= image_tag 'magic_wand.svg', class:'profile-pic'  %>
+    <% end %>
+    <div>
+      <h1><%= @user.first_name %> <%= @user.last_name  %></h1>
+      <hr>
+      <p>Selling: <%= (@user.wands.count) %> Wands:</p>
+      <% if @user.wands %>
+        <ul>
+          <% @user.wands.each do |wand| %>
+            <%= link_to wand.name,  wand_path(wand), class:'btn' %>
+          <% end %>
+        </ul>
+      <% else %>
+      <p>User has no wands to sell!</p>
+      <% end %>
+      <hr>
+      <p>Statistics:</p>
+
+      <i class="fa-solid fa-cart-shopping" style="width:30px;"></i>
+      <%= @user.shopping_carts.where(active: false).count %>
+
+    </div>
+  </div>
+</div>
