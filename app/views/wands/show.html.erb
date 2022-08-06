@@ -40,7 +40,7 @@
         Price ʛ <%= @wand.price %>
       </div>
       <%= simple_form_for [@wand, @shopping_item] do |f| %>
-        <%= f.input :quantity, input_html: { min: '1'} %>
+        <%= f.input :quantity, input_html: { min: '1', max: @wand.quantity} %>
         <% if @wand.available && @wand.quantity > 0 %>
           <%= f.submit 'Buy', class:'btn btn-success my-2' %>
         <% else %>
