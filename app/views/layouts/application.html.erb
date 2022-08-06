@@ -44,9 +44,22 @@
           <li class="nav-item me-1">
             <%= link_to shoppingcart_path , class:'nav-link p-0' do  %>
               <i class="fa-solid fa-cart-shopping" style="width:30px;"></i>
+                <% if user_signed_in? %>
+                  <div class="card-circle">
+                    <div class="cart-amount">
+                        <%if @shopping_cart.shopping_items.count == 0 %>
+                          <p>0</p>
+                        <%else %>
+                          <%= @shopping_cart.shopping_items.pluck(:quantity).reduce(:+) %>
+                        <%end %>
+                    </div>
+                  </div>
+                <% end %>
             <% end %>
           </li>
         </ul>
+
+        <br>
 
         <!-- Avatar photo with cloudinary -->
         <ul class="navbar-nav me-auto" id="user-info">
