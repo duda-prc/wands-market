@@ -21,10 +21,12 @@
 
       <div class="container-fluid">
         <!-- Brand - Wands Market -->
-        <%= link_to root_path, class: 'navbar-brand' do  %>
+        <%= link_to wands_path, class: 'navbar-brand' do  %>
           <%= image_tag 'magic_wand_red.svg', alt:'wands market', class:"brand-img"%>
           <span class="brand">Wands Market</span>
         <% end %>
+
+
 
         <!-- Search Form -->
         <div class="flex-grow-1">
@@ -36,6 +38,7 @@
           %>
           <button class="btn btn-outline-primary" type="submit"><i class="fa-brands fa-searchengin"></i></button>
         <% end %>
+
         </div>
 
         <!-- User info  = ShoppingCart + User avatar (dropdown) -->
@@ -76,11 +79,12 @@
                 <%# <i class="fa-solid fa-wand-sparkles avatar-bordered dropdown-toggle", id= "navbarDropdown", data-bs-toggle="dropdown", aria-haspopup="true",aria-expanded="false" ></i> %>
               <% end %>
               <div class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Home", root_path, class:"dropdown-item" %>
                 <%= link_to "Edit", edit_user_registration_path, class:"dropdown-item" %>
                 <%= link_to "History", shopping_carts_path, class:"dropdown-item" %>
                 <%# <hr class="dropdown-divider"> %>
                 <%= link_to 'My wands', my_wands_path, class:'dropdown-item'  %>
-                <a class="dropdown-item" href="#">My Sells</a>
+                <%= link_to 'My page', about_path(current_user), class:'dropdown-item'  %>
                 <hr class="dropdown-divider border-secondary">
                 <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
               </div>
@@ -111,6 +115,9 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                 <li class="nav-item">
+                  <%= link_to "Home", root_path, class:"nav-link active" %>
+                </li>
+                <li class="nav-item">
                   <%= link_to "Edit", edit_user_registration_path, class:"nav-link active" %>
                 </li>
                 <li class="nav-item">
@@ -118,6 +125,12 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to 'My wands', my_wands_path, class:'nav-link active'  %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'My page', about_path(current_user), class:'nav-link active'  %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "All offers", wands_path, class:"nav-link active" %>
                 </li>
                 <hr class="border-secondary">
                 <li class="nav-item">
